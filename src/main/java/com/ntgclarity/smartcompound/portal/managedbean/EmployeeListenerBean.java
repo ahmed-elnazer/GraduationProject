@@ -1,20 +1,11 @@
 package com.ntgclarity.smartcompound.portal.managedbean;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-
-import org.primefaces.event.SelectEvent;
-import org.primefaces.model.LazyDataModel;
-import org.primefaces.model.SortOrder;
 
 import com.ntgclarity.smartcompound.business.management.SmartCompoundManagment;
 import com.ntgclarity.smartcompound.common.entity.Employee;
@@ -47,9 +38,6 @@ public class EmployeeListenerBean extends BaseBean implements Serializable {
 
 
 
-
-
-
 	public SmartCompoundManagment getSmartCompoundManagment() {
 		return smartCompoundManagment;
 	}
@@ -61,7 +49,7 @@ public class EmployeeListenerBean extends BaseBean implements Serializable {
 
 	
 	public void onSubmit(){
-	   getSmartCompoundManagment().insertEmployeeWithListener(employee);
+	   getSmartCompoundManagment().insertEmployeeInEmpQueue(employee);
 	   
 	}
 

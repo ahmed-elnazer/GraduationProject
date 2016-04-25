@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ntgclarity.smartcompound.business.management.SmartCompoundManagment;
+import com.ntgclarity.smartcompound.business.service.EmployeeCRUDService;
 import com.ntgclarity.smartcompound.business.service.EmployeeService;
 import com.ntgclarity.smartcompound.common.entity.Employee;
 
@@ -15,7 +16,8 @@ public class SmartCompoundManagmentImpl implements SmartCompoundManagment{
 
 	@Autowired
 	private EmployeeService employeeService;
-	
+	@Autowired
+	private EmployeeCRUDService employeeCRUDService;
 	
 	@Override
 	public List<Employee> getAllEmployees() {
@@ -43,11 +45,10 @@ public class SmartCompoundManagmentImpl implements SmartCompoundManagment{
 	}
 
 
+
 	@Override
-	public void insertEmployeeWithListener(Employee employee) {
-	
-		employeeService.insertEmployeeWithListener(employee);
-		
+	public void insertEmployeeInEmpQueue(Employee employee) {
+		 employeeCRUDService.insertEmployeeInEmpQueue(employee);
 	}
 
 }

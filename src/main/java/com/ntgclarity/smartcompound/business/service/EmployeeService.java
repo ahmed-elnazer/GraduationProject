@@ -16,6 +16,5 @@ public interface EmployeeService {
 
 	int getNumOfEmployeesRows(Map<String, Object> filters);
 
-	void insertEmployeeWithListener(Employee employee);
 
 }

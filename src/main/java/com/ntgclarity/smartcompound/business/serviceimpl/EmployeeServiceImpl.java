@@ -61,20 +61,5 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	
-	@Override
-	public void insertEmployeeWithListener(Employee employee) {
-		 employeeQueue.add(employee);
-		insertEmployee(employee);
-	}
-
-	public void insertEmployee(Employee emp){
-		for(int i=0;i<employeeQueue.size();i++){	
-			 System.out.println("from the queue in the insertEmployeeWithListener"+employeeQueue.get(i));
-//			 employeeDAO.insertEmployee(employeeQueue.get(i));
-			employeeQueue.remove(i);	
-		}
-		
-	}
-	
 	
 }
