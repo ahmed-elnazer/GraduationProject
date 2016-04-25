@@ -59,4 +59,8 @@ public abstract class BaseDAO {
 		return count ;
 	}
 
+//	public void insert(Class entityClass) {
+//		    getCurrentSession().save();
+//	}
+
 }

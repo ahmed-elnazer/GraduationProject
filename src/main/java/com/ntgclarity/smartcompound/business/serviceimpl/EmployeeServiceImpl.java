@@ -1,5 +1,6 @@
 package com.ntgclarity.smartcompound.business.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeDAO employeeDAO;
-	
+	private static  List<Employee> employeeQueue=new ArrayList<Employee>();;
+	private List<Employee> employeeQueueFail;
+	public List<Employee> getEmployeeQueueFail() {
+		return employeeQueueFail;
+	}
+
+	public void setEmployeeQueueFail(List<Employee> employeeQueueFail) {
+		this.employeeQueueFail = employeeQueueFail;
+	}
+
+	public List<Employee> getEmployeeQueue() {
+		return employeeQueue;
+	}
+
+	public void setEmployeeQueue(List<Employee> employeeQueue) {
+		this.employeeQueue = employeeQueue;
+	}
+
 	@Override
 	public List<Employee> getAllEmployees() {
 		return employeeDAO.getAllEmployees();
@@ -42,4 +60,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return  employeeDAO.getNumOfEmployeesRows(filters);
 	}
 
+	
+	@Override
+	public void insertEmployeeWithListener(Employee employee) {
+		 employeeQueue.add(employee);
+		insertEmployee(employee);
+	}
+
+	public void insertEmployee(Employee emp){
+		for(int i=0;i<employeeQueue.size();i++){	
+			 System.out.println("from the queue in the insertEmployeeWithListener"+employeeQueue.get(i));
+//			 employeeDAO.insertEmployee(employeeQueue.get(i));
+			employeeQueue.remove(i);	
+		}
+		
+	}
+	
+	
 }

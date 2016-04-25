@@ -19,4 +19,6 @@ public interface SmartCompoundManagment {
 
 	int getNumOfEmployeesRows(Map<String, Object> filters);
 
+	void insertEmployeeWithListener(Employee employee);
+
 }

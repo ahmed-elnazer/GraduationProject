@@ -42,4 +42,12 @@ public class SmartCompoundManagmentImpl implements SmartCompoundManagment{
 		return employeeService.getNumOfEmployeesRows(filters);
 	}
 
+
+	@Override
+	public void insertEmployeeWithListener(Employee employee) {
+	
+		employeeService.insertEmployeeWithListener(employee);
+		
+	}
+
 }

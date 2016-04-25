@@ -16,4 +16,6 @@ public interface EmployeeDAO {
 
 	int getNumOfEmployeesRows(Map<String, Object> filters);
 
+//	void insertEmployee(Employee employee);
+
 }
